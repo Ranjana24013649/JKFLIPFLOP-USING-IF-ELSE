@@ -55,37 +55,64 @@ step-6 Run the program.
 
 
 module JKFLIPFLOP(q, qb,j,k,clock,reset);
+
     input j,k,clock,reset;
+    
     output reg q, qb;
+    
 	 
 always @ (posedge (clock))
 
+
     begin 
+    
         if (!reset)
+	
             begin
+	    
                q <= q;
+	       
                qb <=qb;
-            end   
+	       
+            end
+	    
         
 else
+
    begin
+   
 	   if(j==0 && k==0)
+    
 		   begin
+     
 			q<=q;
+   
 			qb<=qb;
+   
 			end
+   
 		else if(j!=k)
+  
 		   begin
+     
 			q<=j;
+   
 			qb<=k;
+   
 			end
+   
 		else if(j==1 && k==1)
-		    begin
-			 q<=~q;
-			 qb<=~qb;
-			 end
-	end
-end	
+  
+ begin
+      
+q<=~q;
+    
+qb<=~qb;
+    
+ end
+    
+	
+	
 endmodule
 
 
@@ -97,6 +124,7 @@ endmodule
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![Screenshot (90)](https://github.com/user-attachments/assets/dae09f57-31c7-4a0c-88bf-a3e9a5aa1e04)
 
 
 
