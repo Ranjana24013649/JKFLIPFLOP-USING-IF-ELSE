@@ -54,16 +54,50 @@ step-6 Run the program.
 **PROGRAM**
 
 
-![Screenshot (62)](https://github.com/user-attachments/assets/f82a957e-575f-4a50-b407-a8a60450c810)
+module JKFLIPFLOP(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
+
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+   begin
+	   if(j==0 && k==0)
+		   begin
+			q<=q;
+			qb<=qb;
+			end
+		else if(j!=k)
+		   begin
+			q<=j;
+			qb<=k;
+			end
+		else if(j==1 && k==1)
+		    begin
+			 q<=~q;
+			 qb<=~qb;
+			 end
+	end
+end	
+endmodule
 
 
 **RTL LOGIC FOR FLIPFLOPS**
 
-![Screenshot (60)](https://github.com/user-attachments/assets/0912cdae-4ac2-4ab7-8e5d-563117ca5189)
+![Screenshot (89)](https://github.com/user-attachments/assets/14c6a7fb-0cca-47a7-84cf-724663dca49b)
+
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
-![Screenshot (61)](https://github.com/user-attachments/assets/260d3701-0cd0-44ad-a67c-0343625f6c47)
+
 
 
 
